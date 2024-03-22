@@ -1,4 +1,4 @@
-[
+const projects = [
     {
         "pName": "RecipeWorld",
         "pIntro": "",
@@ -76,3 +76,4 @@
         "pAlt": "Spartan Token"
     }
 ]
+module.exports = projects;
