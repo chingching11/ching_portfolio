@@ -27,6 +27,7 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           source: .
           target: /var/www/ching-portfolio-app
+          debug: true
 
       - name: SSH into EC2 and run Docker container
         uses: appleboy/ssh-action@master
