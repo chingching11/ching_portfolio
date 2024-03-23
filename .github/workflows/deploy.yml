@@ -3,7 +3,7 @@ name: Deploy to EC2
 on:
   push:
     branches:
-      - main  # You can change this to match your branch name
+      - main  
 
 jobs:
   deploy:
@@ -37,3 +37,4 @@ jobs:
           script: |
             cd /var/www/ching-portfolio-app
             docker run -d -p 3000:3000 ching-portfolio
+            debug: true
