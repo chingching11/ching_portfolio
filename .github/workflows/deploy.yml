@@ -1,0 +1,29 @@
+name: Deploy App to EC2
+
+on:
+  push:
+    branches: [ main ]  # Trigger on pushes to the "main" branch (adjust if needed)
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # Workflow runner (adjust if needed)
+    steps:
+      - uses: actions/checkout@v3  # Checkout code from GitHub repository
+
+      - name: Login to EC2 using SSH (using stored private key)
+        uses: nmusoke/ec2-ssh-key@v1
+        with:
+          host: ${{ secrets.HOST_DNS }}  # Replace with your EC2 instance's public DNS name
+          username: ${{ secrets.USERNAE }}  # Adjust if using a different username
+          private-key: ${{ secrets.EC2_SSH_KEY }}
+
+      - name: Install dependencies (adjust if using npm)
+        run: |
+          curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+          sudo apt-get install -y nodejs
+
+      - name: Build the Docker image
+        run: docker build -t ching_portfolio .  # Replace with your image name and tag
+
+      - name: Run the Docker container (start Next.js in production mode)
+        run: docker run -d -p 3000:3000 ching_portfolio NODE_ENV=production
