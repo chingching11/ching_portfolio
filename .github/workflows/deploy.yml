@@ -34,5 +34,5 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            cd /var/www/ching-portfolio-app
+            cd /home/ubuntu/app
             docker run -d -p 3000:3000 ching-portfolio
