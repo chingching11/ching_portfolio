@@ -1,0 +1,13 @@
+name: Test SSH Connection
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-ssh-connection:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Test SSH Connection
+        run: |
+          ssh -o StrictHostKeyChecking=no -i ${{ secrets.EC2_SSH_KEY }} ${{ secrets.USERNAME }}@${{ secrets.HOST_DNS }} 'echo "SSH connection successful"'
