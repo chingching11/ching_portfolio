@@ -1,32 +1,32 @@
-
 name: Deploy to EC2
 
 on:
   push:
     branches:
-      - main  
+      - main
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
       - name: Build Docker image
         run: docker build -t ching-portfolio .
-            
-      - name: copy file via ssh key
+
+      - name: Save Docker image to tarball
+        run: docker save ching-portfolio -o ching-portfolio.tar
+
+      - name: Transfer Docker image to EC2
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.HOST_DNS }}
           username: ${{ secrets.USERNAME }}
-          port: ${{ secrets.EC2_SSH_PORT }}
           key: ${{ secrets.EC2_SSH_KEY }}
-          source: .
-          target: /home/ubuntu/app
-          
+          source: ./ching-portfolio.tar
+          target: /home/ubuntu/ching-portfolio.tar
+
       - name: SSH into EC2 and deploy
         uses: appleboy/ssh-action@master
         with:
@@ -34,5 +34,6 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            cd /home/ubuntu/app
-            docker run -d -p 3000:3000 ching-portfolio
+            docker load -i /home/ubuntu/ching-portfolio.tar
+            docker stop ching-portfolio || true && docker rm ching-portfolio || true
+            docker run -d --name ching-portfolio -p 3000:3000 ching-portfolio
