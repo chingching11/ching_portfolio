@@ -14,12 +14,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install dependencies
-        run: npm install
-
       - name: Build Docker image
         run: docker build -t ching-portfolio .
 
+      - name: Set permissions for private key
+        run: chmod 600 ${{ secrets.EC2_SSH_KEY }}
+        
       - name: SCP Dockerfile to EC2 instance
         run: scp -i ${{ secrets.EC2_SSH_KEY }} ching-portfolio ${{ secrets.USERNAME }}@${{ secrets.HOST_DNS }}:/var/www/ching-portfolio-app
 
