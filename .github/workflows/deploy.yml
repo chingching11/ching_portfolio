@@ -16,22 +16,9 @@ jobs:
 
       - name: Build Docker image
         run: docker build -t ching-portfolio .
-
-      - name: Save Docker image as tar
-        run: docker save -o ching-portfolio.tar ching-portfolio
         
       - name: Copy Docker image to EC2
-        run: scp -i ${{ secrets.EC2_SSH_KEY }} ching-portfolio.tar ${{ secrets.USERNAME }}@${{ secrets.HOST_DNS }}:/var/www/ching-portfolio-app
-
-      - name: SSH into EC2 and load Docker image
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST_DNS }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.EC2_SSH_KEY }}
-          port: ${{ secrets.EC2_SSH_PORT }}
-          script: |
-            docker load -i /var/www/ching-portfolio-app/ching-portfolio.tar
+        run: scp -i ${{ secrets.EC2_SSH_KEY }} ching-portfolio ${{ secrets.USERNAME }}@${{ secrets.HOST_DNS }}:/var/www/
           
       - name: SSH into EC2 and deploy
         uses: appleboy/ssh-action@master
@@ -40,5 +27,5 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            cd /var/www/ching-portfolio-app
+            cd /var/www
             docker run -d -p 3000:3000 ching-portfolio
