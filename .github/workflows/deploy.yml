@@ -3,7 +3,7 @@ name: Deploy to EC2
 on:
   push:
     branches:
-      - main
+      - main  # You can change this to match your branch name
 
 jobs:
   deploy:
@@ -13,27 +13,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install SSH key
-        uses: webfactory/ssh-agent@v0.5.3
-        with:
-          ssh-private-key: ${{ secrets.EC2_SSH_KEY }}
+      - name: Install dependencies
+        run: npm install
 
-      - name: Copy Dockerfile to EC2
-        run: scp -r Dockerfile ${{ secrets.EC2_PUBLIC_IP }}:~/ching-portfolio-app
-        
-      - name: Copy app files to EC2
-        run: scp -r . ${{ secrets.EC2_PUBLIC_IP }}:~/ching-portfolio-app
-        
-      - name: SSH into EC2 and build Docker image
-        uses: appleboy/ssh-action@master
+      - name: Build Docker image
+        run: docker build -t ching-portfolio .
+
+      - name: Copy Docker image to EC2
+        uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.HOST_DNS }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
-          port: ${{ secrets.EC2_SSH_PORT }}
-          script: |
-            cd ~/ching-portfolio-app
-            docker build -t ching-portfolio-app .
+          source: .
+          target: /var/www/ching-portfolio-app
 
       - name: SSH into EC2 and run Docker container
         uses: appleboy/ssh-action@master
@@ -41,8 +34,6 @@ jobs:
           host: ${{ secrets.HOST_DNS }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
-          port: ${{ secrets.EC2_SSH_PORT }}
           script: |
-            docker stop my-nextjs-app || true
-            docker rm my-nextjs-app || true
-            docker run -d -p 3000:3000 --name ching-portfolio-app ching-portfolio-app:latest
+            cd /var/www/ching-portfolio-app
+            docker run -d -p 3000:3000 ching-portfolio
