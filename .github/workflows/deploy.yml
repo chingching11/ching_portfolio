@@ -24,7 +24,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           port: ${{ secrets.EC2_SSH_PORT }}
           key: ${{ secrets.EC2_SSH_KEY }}
-          source: "ching-portfolio"
+          source: .
           target: "/var/www/ching-portfolio-app"
           
       - name: SSH into EC2 and deploy
