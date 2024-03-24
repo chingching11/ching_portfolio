@@ -15,14 +15,17 @@ jobs:
       - name: Build Docker image
         run: docker build -t ching-portfolio .
 
+      - name: Save Docker image to tarball
+        run: docker save -o ching-portfolio.tar ching-portfolio
+        
       - name: Transfer Docker image to EC2
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.HOST_DNS }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
-          source: .
-          target: /home/ubuntu
+          source: ching-portfolio.tar
+          target: /home/ubuntu/app
 
       - name: SSH into EC2 and deploy
         uses: appleboy/ssh-action@master
@@ -31,5 +34,6 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
+            docker load -i /home/ubuntu/app/ching-portfolio.tar
             docker stop ching-portfolio || true && docker rm ching-portfolio || true
             docker run -d --name ching-portfolio -p 3000:3000 ching-portfolio
