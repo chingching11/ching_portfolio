@@ -24,7 +24,7 @@ jobs:
           host: ${{ secrets.HOST_DNS }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
-          source: ./ching-portfolio.tar
+          source: .
           target: /home/ubuntu
 
       - name: SSH into EC2 and deploy
