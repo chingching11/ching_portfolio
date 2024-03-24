@@ -10,8 +10,7 @@ export default function Home() {
               <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-2">I'm Ching</h1>
               <h5 className="text-lg font-bold text-gray-800 mb-4">Software Engineer</h5>
               <p className="text-base lg:text-lg leading-relaxed text-gray-700 mb-6">
-                  I'm a fresh graduate from San Jose State University with highest distinction.   
-                  I'm interested in Web Development, Database Management System and Cybersecurity.
+                 I like coding.
               </p>
               <a href="/about" className="btn btn-outline-light mr-4">About Me</a>
               <a href="/contact" className="btn btn-outline-light mr-4">Contact Me</a>

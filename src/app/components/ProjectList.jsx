@@ -2,7 +2,6 @@ import React from 'react'
 import projects from './projects'
 
 const ProjectList = async() => {
-    console.log(projects);
   return (
     <div>
       ProjectList
