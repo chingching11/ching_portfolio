@@ -39,4 +39,4 @@ jobs:
           script: |
             docker load -i /home/ubuntu/app/ching-portfolio.tar
             docker stop ching-portfolio || true && docker rm ching-portfolio || true
-            docker run -d --name ching-portfolio -p 3000:3000 ching-portfolio
+            docker run -d --name ching-portfolio -p 8080:3000 ching-portfolio
