@@ -36,7 +36,8 @@ jobs:
           host: ${{ secrets.HOST_DNS }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
-          script: |
+          script: |            
+            docker rm -f ching-portfolio || true
+            docker rmi ching-portfolio || true
             docker load -i /home/ubuntu/app/ching-portfolio.tar
-            docker stop ching-portfolio || true && docker rm ching-portfolio || true
-            docker run -d --name ching-portfolio -p 8080:3000 ching-portfolio
+            docker run -d --name ching-portfolio -p 3000:3000 ching-portfolio
