@@ -2,6 +2,7 @@
 const nextConfig = {
     basePath: '/ching_portfolio',
     output: 'export',
+    reactStrictMode: true,
     
 };
 
