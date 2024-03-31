@@ -4,7 +4,7 @@ const nextConfig = {
     output: 'export',
     reactStrictMode: true,
     images: {
-        path: `${basePath}/_next/image`,
+        path: '/ching_portfolio/_next/image',
     }
     
 };
