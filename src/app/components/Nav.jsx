@@ -10,14 +10,13 @@ const Nav = () => {
     const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <header className='bg-white'>
+    <header className='px-5'>
         <nav className='mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8'>
-            <Link href="/" className='flex lg:flex-1'>
+            <Link href="/" className='flex lg:flex-1 pl-10'>
                 <Image src="/assets/images/babyshark.jpeg" alt="logo" width={50} height={50}/>
             </Link>
             <div className="hidden lg:flex lg:gap-x-12 lg:justify-end">             
                 <Link href="/" className="text-m ">Home</Link>
-                <Link href="/projects" className="text-m">Projects</Link>
                 <Link href="/aboutme" className="text-m">About me</Link>
                 <Link href="/contact" className="text-m">Contact</Link>
             </div>
@@ -28,7 +27,7 @@ const Nav = () => {
             </div>
         </nav>
     </header>
-    
+   
   )
 }
 

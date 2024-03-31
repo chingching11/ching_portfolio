@@ -1,3 +1,105 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body{
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(249, 247, 242);
+}
+
+.container{
+    padding: 5% 5%;
+}
+
+.navbar-custom{
+    background-color: #40a8c4;
+}
+
+.navbar-light .navbar-nav .nav-link{
+    color: white;
+    font-size: large;
+}
+
+
+.intro {
+    width: 30%;
+    margin: auto;
+}
+
+.top-container {
+   text-align: left;
+   margin-top: 2%;
+   margin-bottom: 2%;
+}
+
+.hello-box{
+    padding: 5% 0;
+}
+
+h1{
+    font-family: 'Merriweather', serif;
+}
+
+h3{
+    font-weight: bolder;
+}
+
+h5{
+    font-family: 'Open Sans', sans-serif;;
+}
+
+
+hr {
+    border: dotted #d6eaf0 6px;
+    border-bottom: none;
+    width: 4%;
+}
+
+img {
+    margin-bottom: 2%;
+}
+.text-box{
+    padding: 10% 0;
+}
+
+.image-box{
+    padding: 5%;
+}
+.image-shadow {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.image-circular {
+    border-radius: 10%;
+}
+.detail-box{
+    padding-top: 5%;
+}
+
+ul{
+    list-style-type: none ;
+    /* padding-left: 30%; */
+}
+
+.lists-box{
+    text-align: center;
+}
+
+.project-box{
+    text-align: left;
+}
+
+.btn{
+    background-color: #40a8c4;
+}
+
+.about-text{
+    text-align: left;
+    padding-bottom: 5%;
+}
+
+.contact{
+    text-align: left;
+    width: 30%;
+    margin: auto;
+}

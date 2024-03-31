@@ -15,8 +15,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+          <link rel="icon" href="/assets/images/favicon.ico" />
+        </head>
       <body className={inter.className}>
-      <Nav />
+        <Nav />
         <main className="container flex mx-auto px-4 py-8 justify-center text-center">         
             {children}
         </main>     

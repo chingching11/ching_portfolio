@@ -11,7 +11,7 @@ const projects = [
             ],
         "pGitHubRepo": "https://github.com/chingching11/RecipeWorld.git",
         "pSite": "https://world-of-recipes-here.herokuapp.com/",
-        "pImage": "images/recipe-home.png",
+        "pImage": "/assets/images/recipe-home.png",
         "pAlt": "recipe home page"
     }, 
     {
@@ -24,7 +24,7 @@ const projects = [
         ],
         "pGitHubRepo": "https://github.com/chingching11/notes-app-MERN-full-stack",
         "pSite": "",
-        "pImage": "images/nerdyapp-home.png",
+        "pImage": "/assets/images/nerdyapp-home.png",
         "pAlt": "nerdy app home page"
     }, 
     {
@@ -39,7 +39,7 @@ const projects = [
         ],
         "pGitHubRepo": "https://github.com/chingching11/MERN-auth-jwt-cypress-docker",
         "pSite": "",
-        "pImage": "images/mernauth-home.png",
+        "pImage": "/assets/images/mernauth-home.png",
         "pAlt": "mern auth register page"
     }, 
     {
@@ -49,7 +49,7 @@ const projects = [
         "pStack": ["JavaScript, Node.js, Express", "Cryptocurrency: gold", "Blockchain: spartan-gold blockchain "],
         "pGitHubRepo": "https://github.com/chingching11/Spartan-Trading",
         "pSite": "",
-        "pImage": "images/spartantrading-home.png",
+        "pImage": "/assets/images/spartantrading-home.png",
         "pAlt": "Spartan Trading home page"
     }, 
     {
@@ -62,7 +62,7 @@ const projects = [
         ],
         "pGitHubRepo": "https://github.com/chingching11/fun-securtiy-crypto",
         "pSite": "",
-        "pImage": "images/funcrypto-home.png",
+        "pImage": "/assets/images/funcrypto-home.png",
         "pAlt": "Fun Crypto page"
     }, 
     {
@@ -72,7 +72,7 @@ const projects = [
         "pStack": ["Solidity", "Development and Deploy Environment: Remix Ethereum"],
         "pGitHubRepo": "https://github.com/chingching11/Spartan-Token",
         "pSite": "",
-        "pImage": "images/spartantoken-home.png",
+        "pImage": "/assets/images/spartantoken-home.png",
         "pAlt": "Spartan Token"
     }
 ]
