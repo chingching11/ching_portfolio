@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    basePath: '/ching_portfolio',
     output: 'export',
-    // Add basePath
-    basePath: '/ching_portfolio/',
+    
 };
 
 export default nextConfig;
