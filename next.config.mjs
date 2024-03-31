@@ -4,8 +4,14 @@ const nextConfig = {
     output: 'export',
     reactStrictMode: true,
     images: {
-        domains: ['https://chingching11.github.io/ching_portfolio/'],
-        path: '/ching_portfolio/_next/image',
+        remotePatterns: [
+            {
+              protocol: 'https',
+              hostname: 'chingching11.github.io',
+              port: '',
+              pathname: '/ching_portfolio',
+            },
+        ],
     }
     
 };
