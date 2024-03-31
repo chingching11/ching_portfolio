@@ -12,7 +12,6 @@ export default function Home() {
       <Skills />
       <Ex />
       <ProjectList />
-      <Footer />
     </div>
   );
 }

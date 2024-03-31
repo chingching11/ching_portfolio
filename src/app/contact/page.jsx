@@ -1,15 +1,16 @@
 import React from 'react'
+import Link from 'next/link'
 
 function Contact() {
   return (
     <div className="container">
-      <h1>Contact</h1>
-      <div className="container">
-        <div className="contact">
-          <p>email: <strong>chingching.kao11@gmail.com</strong></p>
-          <p>mobile: <strong>+1 (415)-818-5429</strong></p>
+      <h1 className='text-2xl'>Contact</h1>
+        <div>
+          <p className='py-5'>email: <strong>chingching.kao11@gmail.com</strong></p>
+          <Link href="/destination" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Github
+          </Link>
         </div>
-      </div>
     </div>
   )
 }
