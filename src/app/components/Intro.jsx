@@ -1,5 +1,6 @@
 import React from 'react'
 import nextConfig from '../../../next.config.mjs'
+import Image from 'next/image'
 
 const Intro = () => {
   return (
@@ -14,7 +15,7 @@ const Intro = () => {
           </p>
         </div>
         <div className="lg:pl-4">
-          <img src="/assets/images/profile.png" className="mx-auto d-block" alt="ChingChing" width="300" height="300" /> 
+          <Image src={`/${nextConfig.basePath}/assets/images/profile.png`} className="mx-auto d-block" alt="ChingChing" width="300" height="300" /> 
         </div>
       </div>
     </div>

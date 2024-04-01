@@ -1,4 +1,6 @@
 import React from 'react'
+import nextConfig from '../../../next.config.mjs'
+import Image from 'next/image'
 
 function Aboutme() {
   return (
@@ -26,7 +28,7 @@ function Aboutme() {
           </div>
         </div>
         <div className="lg:pl-4">
-          <img src="/assets/images/lake_tahoe.jpeg" className="mx-auto d-block image-shadow image-circular" alt="lake tahoe" width={400} height={300} />
+          <Image src={`${nextConfig.basePath}/assets/images/lake_tahoe.jpeg`} className="mx-auto d-block image-shadow image-circular" alt="lake tahoe" width={400} height={300} />
         </div>
       </div>
     </div>
