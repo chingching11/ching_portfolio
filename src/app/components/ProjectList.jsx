@@ -12,7 +12,7 @@ const ProjectList = () => {
         <div key={index} className="container mx-auto rounded-lg shadow-lg p-8 mb-8">
           <div className="flex flex-col lg:flex-row">
             <div className="lg:w-1/2 mb-4 lg:mb-0">
-              <Image src={`/${nextConfig.basePath}/${project.pImage}`} alt={project.pAlt} className="rounded-lg object-cover w-full h-64 lg:h-auto" />
+              <Image src={`${nextConfig.basePath}${project.pImage}`} alt={project.pAlt} className="rounded-lg object-cover w-full h-64 lg:h-auto" width={300} height={300} />
             </div>
             <div className="lg:w-1/2 lg:pl-8">
               <h3 className="text-xl font-bold mb-2">{project.pName}</h3>

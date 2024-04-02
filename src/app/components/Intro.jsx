@@ -15,7 +15,7 @@ const Intro = () => {
           </p>
         </div>
         <div className="lg:pl-4">
-          <Image src={`/${nextConfig.basePath}/assets/images/profile.png`} className="mx-auto d-block" alt="ChingChing" width="300" height="300" /> 
+          <Image src={`${nextConfig.basePath}/assets/images/profile.png`} className="mx-auto d-block" alt="ChingChing" width="300" height="300" /> 
         </div>
       </div>
     </div>
